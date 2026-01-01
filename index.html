@@ -56,217 +56,468 @@
       transform: rotate(-6deg) scale(1.08);
       filter: drop-shadow(0 0 14px color-mix(in srgb, var(--brand) 70%, transparent));
     }
+    
+    /* Page transition */
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
 <body class="bg-white text-gray-900 dark:bg-black dark:text-white font-sans">
-  <!-- CENTERED PAGE + LEFT/RIGHT PADDING -->
-  <div class="min-h-screen flex justify-center">
-    <div class="w-full max-w-5xl px-6 sm:px-12 lg:px-40 py-12">
+  <!-- MAIN PAGE -->
+  <div id="mainPage" class="page active">
+    <!-- CENTERED PAGE + LEFT/RIGHT PADDING -->
+    <div class="min-h-screen flex justify-center">
+      <div class="w-full max-w-5xl px-6 sm:px-12 lg:px-40 py-12">
 
-      <!-- Top bar with theme toggle -->
-      <div class="flex justify-end mb-10">
-        <button
-          id="themeToggle"
-          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800
-                 bg-white dark:bg-gray-950 text-gray-900 dark:text-white
-                 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-          aria-label="Toggle theme"
-        >
-          <i id="themeIcon" class="fa-solid fa-moon"></i>
-          <span class="text-sm font-medium">Theme</span>
-        </button>
+        <!-- Top bar with theme toggle -->
+        <div class="flex justify-end mb-10">
+          <button
+            id="themeToggle"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800
+                   bg-white dark:bg-gray-950 text-gray-900 dark:text-white
+                   hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+            <span class="text-sm font-medium">Theme</span>
+          </button>
+        </div>
+
+        <!-- Header Section -->
+        <header class="mb-16">
+          <!-- ✅ Profile row -->
+          <div class="flex items-start gap-6">
+            <!-- ✅ CHANGE THIS PATH TO YOUR IMAGE IN FOLDER -->
+            <!-- Example: ./profile.jpg OR ./images/profile.png -->
+            <img
+            src="./image.jpg"
+            alt="Shahab Mustafa"
+            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover
+                   border-2 border-gray-300 dark:border-gray-700
+                   bg-gray-100 dark:bg-gray-950"
+          />        
+
+            <div class="flex-1">
+              <h1 class="text-4xl sm:text-4xl font-bold mb-2">Shahab Mustafa</h1>
+              <p class="text-xl text-gray-700 dark:text-gray-300 mb-1">Flutter Developer</p>
+              <p class="text-gray-600 dark:text-gray-400 mb-6">Peshawar, Pakistan</p>
+
+              <div class="flex gap-4 items-center flex-wrap">
+                <a href="./resume.pdf" download="Shahab_Mustafa_Resume.pdf"
+                   class="bg-black text-white dark:bg-white dark:text-black px-5 py-1.5 rounded-lg font-medium
+                          hover:opacity-90 transition flex items-center gap-2 cursor-pointer">
+                  <i class="far fa-file-alt"></i>
+                  Resume
+                </a>
+
+                <a href="https://www.linkedin.com/in/shahab-mustafa-842688211/"
+                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="https://github.com/Shahabmustafa"
+                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+                  <i class="fab fa-github"></i>
+                </a>
+
+                <a href="mailto:shahabmustafa57@gmail.com"
+                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+                  <i class="far fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Tech Stack Section -->
+        <section class="mb-16">
+          <h2 class="text-xl font-semibold mb-8">Current tech stack</h2>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">
+            <!-- Flutter -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#02569B; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/flutter.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Flutter</span>
+            </div>
+
+            <!-- Dart -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#0175C2; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dart.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Dart</span>
+            </div>
+
+            <!-- Firebase -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#FFCA28; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Firebase</span>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#F7DF1E; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">JavaScript</span>
+            </div>
+
+            <!-- Supabase -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#3ECF8E; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Supabase</span>
+            </div>
+
+            <!-- Dialogflow -->
+            <div class="stack-card group flex flex-col items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center
+                          bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
+                <div class="tech-icon"
+                     style="--brand:#4285F4; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dialogflow.svg');"></div>
+              </div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Dialogflow</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Projects Section -->
+        <section class="mb-16">
+          <h2 class="text-xl font-semibold mb-8">Recent projects</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 - SafiShoes -->
+            <div class="group cursor-pointer" onclick="showProject('safishoes')">
+              <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-amber-100 to-orange-200 dark:from-amber-900 dark:to-orange-900">
+                <div class="w-full h-full flex items-center justify-center">
+                  <i class="fas fa-shoe-prints text-6xl text-amber-700 dark:text-amber-300"></i>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold">SafiShoes POS</h3>
+                <div class="flex gap-2">
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                A comprehensive shoe store POS system with multi-branch management, inventory tracking, and detailed reporting.
+              </p>
+            </div>
+
+            <!-- Project 2 - ScholaFlow -->
+            <div class="group cursor-pointer" onclick="showProject('scholaflow')">
+              <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23e9d5ff' width='400' height='250'/%3E%3C/svg%3E"
+                     alt="ScholaFlow" class="w-full h-full object-cover">
+              </div>
+
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold">ScholaFlow</h3>
+                <div class="flex gap-2">
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                A learning platform with image feedback, group chat, and note-taking for streamlined learning.
+              </p>
+            </div>
+
+            <!-- Project 3 - Queyk -->
+            <div class="group cursor-pointer" onclick="showProject('queyk')">
+              <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%231e3a8a' width='400' height='250'/%3E%3C/svg%3E"
+                     alt="Queyk" class="w-full h-full object-cover">
+              </div>
+
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold">Queyk</h3>
+                <div class="flex gap-2">
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                A seismic monitoring system with school alerts, evacuation tools, and protocols for earthquake preparedness.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-600 dark:text-gray-400 text-sm pt-8 border-t border-gray-200 dark:border-gray-800">
+          <p>&copy; 2025 Shahab Mustafa</p>
+        </footer>
+
       </div>
-
-      <!-- Header Section -->
-      <header class="mb-16">
-        <!-- ✅ Profile row -->
-        <div class="flex items-start gap-6">
-          <!-- ✅ CHANGE THIS PATH TO YOUR IMAGE IN FOLDER -->
-          <!-- Example: ./profile.jpg OR ./images/profile.png -->
-          <img
-          src="./image.jpg"
-          alt="Shahab Mustafa"
-          class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover
-                 border-2 border-gray-300 dark:border-gray-700
-                 bg-gray-100 dark:bg-gray-950"
-        />        
-
-          <div class="flex-1">
-            <h1 class="text-4xl sm:text-4xl font-bold mb-2">Shahab Mustafa</h1>
-            <p class="text-xl text-gray-700 dark:text-gray-300 mb-1">Flutter Developer</p>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">Peshawar, Pakistan</p>
-
-            <div class="flex gap-4 items-center flex-wrap">
-              <a href="./resume.pdf" download="Shahab_Mustafa_Resume.pdf"
-                 class="bg-black text-white dark:bg-white dark:text-black px-5 py-1.5 rounded-lg font-medium
-                        hover:opacity-90 transition flex items-center gap-2 cursor-pointer">
-                <i class="far fa-file-alt"></i>
-                Resume
-              </a>
-
-              <a href="https://www.linkedin.com/in/shahab-mustafa-842688211/"
-                 class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                <i class="fab fa-linkedin"></i>
-              </a>
-
-              <a href="https://github.com/Shahabmustafa"
-                 class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                <i class="fab fa-github"></i>
-              </a>
-
-              <a href="mailto:shahabmustafa57@gmail.com"
-                 class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                <i class="far fa-envelope"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Tech Stack Section -->
-      <section class="mb-16">
-        <h2 class="text-xl font-semibold mb-8">Current tech stack</h2>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">
-          <!-- Flutter -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#02569B; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/flutter.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Flutter</span>
-          </div>
-
-          <!-- Dart -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#0175C2; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dart.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Dart</span>
-          </div>
-
-          <!-- Firebase -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#FFCA28; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Firebase</span>
-          </div>
-
-          <!-- JavaScript -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#F7DF1E; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">JavaScript</span>
-          </div>
-
-          <!-- Supabase -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#3ECF8E; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Supabase</span>
-          </div>
-
-          <!-- Dialogflow -->
-          <div class="stack-card group flex flex-col items-center gap-3">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center
-                        bg-gray-100 dark:bg-gray-950 border border-gray-200 dark:border-gray-800">
-              <div class="tech-icon"
-                   style="--brand:#4285F4; --icon:url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dialogflow.svg');"></div>
-            </div>
-            <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-white/90 transition">Dialogflow</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Recent Projects Section -->
-      <section class="mb-16">
-        <h2 class="text-xl font-semibold mb-8">Recent projects</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Project 1 -->
-          <div class="group">
-            <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23e9d5ff' width='400' height='250'/%3E%3C/svg%3E"
-                   alt="ScholaFlow" class="w-full h-full object-cover">
-            </div>
-
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-semibold">ScholaFlow</h3>
-              <div class="flex gap-2">
-                <a href="#" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              A learning platform with image feedback, group chat, and note-taking for streamlined learning.
-            </p>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="group">
-            <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%231e3a8a' width='400' height='250'/%3E%3C/svg%3E"
-                   alt="Queyk" class="w-full h-full object-cover">
-            </div>
-
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-semibold">Queyk</h3>
-              <div class="flex gap-2">
-                <a href="#" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              A seismic monitoring system with school alerts, evacuation tools, and protocols for earthquake preparedness.
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- Footer -->
-      <footer class="text-center text-gray-600 dark:text-gray-400 text-sm pt-8 border-t border-gray-200 dark:border-gray-800">
-        <p>&copy; 2025 Shahab Mustafa</p>
-      </footer>
-
     </div>
   </div>
 
-  <!-- Theme Toggle Script -->
+  <!-- PROJECT DETAIL PAGE -->
+  <div id="projectPage" class="page">
+    <div class="min-h-screen flex justify-center">
+      <div class="w-full max-w-6xl px-6 sm:px-12 py-12">
+        
+        <!-- Back button and theme toggle -->
+        <div class="flex justify-between items-center mb-10">
+          <button onclick="goBack()" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800
+                 bg-white dark:bg-gray-950 text-gray-900 dark:text-white
+                 hover:bg-gray-100 dark:hover:bg-gray-900 transition">
+            <i class="fas fa-arrow-left"></i>
+            <span class="text-sm font-medium">Back to Portfolio</span>
+          </button>
+
+          <button
+            id="themeToggle2"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800
+                   bg-white dark:bg-gray-950 text-gray-900 dark:text-white
+                   hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon2" class="fa-solid fa-moon"></i>
+            <span class="text-sm font-medium">Theme</span>
+          </button>
+        </div>
+
+        <!-- Project Header -->
+        <div class="mb-12">
+          <h1 id="projectTitle" class="text-4xl sm:text-5xl font-bold mb-4"></h1>
+          <p id="projectDescription" class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl"></p>
+        </div>
+
+        <!-- Video Section -->
+        <div class="mb-12">
+          <div id="projectVideo" class="rounded-xl overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+            <!-- Video will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-semibold mb-4">Technologies Used</h2>
+          <div id="projectTech" class="flex flex-wrap gap-3">
+            <!-- Technologies will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-semibold mb-6">Key Features</h2>
+          <div id="projectFeatures" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Features will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex gap-4 flex-wrap mb-12">
+          <a id="projectGithub" href="#" class="flex items-center gap-2 px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg hover:opacity-90 transition font-medium">
+            <i class="fab fa-github"></i>
+            View on GitHub
+          </a>
+          <a id="projectLive" href="#" class="flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition font-medium">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script>
+    // Theme toggle
     function setIcon() {
       const isDark = document.documentElement.classList.contains("dark");
       document.getElementById("themeIcon").className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      const icon2 = document.getElementById("themeIcon2");
+      if (icon2) icon2.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
     }
 
     setIcon();
 
-    document.getElementById("themeToggle").addEventListener("click", function () {
+    function toggleTheme() {
       const isDark = document.documentElement.classList.toggle("dark");
       localStorage.setItem("theme", isDark ? "dark" : "light");
       setIcon();
-    });
+    }
+
+    document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+    document.getElementById("themeToggle2").addEventListener("click", toggleTheme);
+
+    // Project data
+    const projectData = {
+      safishoes: {
+        title: "SafiShoes POS System",
+        description: "A comprehensive Point of Sale system designed specifically for shoe retail businesses. This enterprise-level application manages multiple branches, warehouses, and provides detailed inventory tracking with real-time reporting capabilities. Built with Flutter for cross-platform compatibility and seamless performance.",
+        videoUrl: "./safishoes-demo.mp4",
+        features: [
+          { icon: "fa-users-cog", title: "Multi-User Management", desc: "Admin, Branch Manager, Warehouse Manager roles with complete permission control" },
+          { icon: "fa-file-invoice-dollar", title: "Sales Invoice System", desc: "Complete sales management with invoice generation and customer tracking" },
+          { icon: "fa-chart-line", title: "Dashboard Analytics", desc: "Real-time business insights with interactive charts and performance metrics" },
+          { icon: "fa-money-bill-wave", title: "Expense Management", desc: "Track and categorize all business expenses with detailed reports" },
+          { icon: "fa-shopping-cart", title: "Purchase Invoice", desc: "Manage purchases from suppliers with invoice tracking and payment history" },
+          { icon: "fa-boxes", title: "Stock Inventory", desc: "Separate inventory management for Admin, Branch, and Warehouse levels" },
+          { icon: "fa-exchange-alt", title: "Stock Assignment", desc: "Assign and transfer stock seamlessly between branches and warehouses" },
+          { icon: "fa-undo", title: "Return Management", desc: "Handle stock returns from branches and warehouses with full audit trail" },
+          { icon: "fa-clipboard-check", title: "Claims Processing", desc: "Process and track claims from branches and warehouses efficiently" },
+          { icon: "fa-cash-register", title: "Branch Cash Counter", desc: "Real-time cash counter management for each branch location" },
+          { icon: "fa-users", title: "Customer Management", desc: "Comprehensive customer database with purchase history and preferences" },
+          { icon: "fa-building", title: "Company Management", desc: "Manage supplier and vendor company information and relationships" },
+          { icon: "fa-book", title: "Customer Ledger", desc: "Detailed transaction history and account statements for customers" },
+          { icon: "fa-file-invoice", title: "Company Ledger", desc: "Complete financial records and transaction history for suppliers" },
+          { icon: "fa-chart-bar", title: "Comprehensive Reports", desc: "Generate detailed reports for sales, inventory, expenses, and finances" },
+          { icon: "fa-cog", title: "Role-Based Access", desc: "Secure role-based permissions ensuring data security and access control" }
+        ],
+        technologies: ["Flutter", "Dart", "Firebase", "Provider", "GetX", "SQLite"],
+        github: "#",
+        live: "#"
+      },
+      scholaflow: {
+        title: "ScholaFlow Learning Platform",
+        description: "An innovative learning platform that combines modern educational tools to create an engaging and collaborative learning experience. Features include image-based feedback, real-time group discussions, and intelligent note-taking capabilities to enhance the learning process.",
+        videoUrl: "",
+        features: [
+          { icon: "fa-image", title: "Image Feedback System", desc: "Visual learning enhancement with annotated image feedback and markups" },
+          { icon: "fa-comments", title: "Group Chat", desc: "Real-time collaboration and discussions with multimedia support" },
+          { icon: "fa-sticky-note", title: "Smart Note Taking", desc: "Intelligent note-taking with organization, tagging, and search features" },
+          { icon: "fa-users", title: "Collaborative Learning", desc: "Share notes and resources with classmates in study groups" },
+          { icon: "fa-bell", title: "Notifications", desc: "Stay updated with class announcements and assignment reminders" },
+          { icon: "fa-mobile-alt", title: "Mobile First", desc: "Optimized for mobile devices for learning on the go" }
+        ],
+        technologies: ["Flutter", "Firebase", "Cloud Firestore", "Firebase Auth"],
+        github: "#",
+        live: "#"
+      },
+      queyk: {
+        title: "Queyk Seismic Monitor",
+        description: "A critical safety application designed for earthquake preparedness in educational institutions. Provides real-time seismic monitoring, automated alerts, and comprehensive evacuation protocols to ensure student and staff safety during seismic events.",
+        videoUrl: "",
+        features: [
+          { icon: "fa-broadcast-tower", title: "Seismic Monitoring", desc: "Real-time earthquake detection with magnitude and location tracking" },
+          { icon: "fa-bell", title: "Instant School Alerts", desc: "Automated notifications to schools and authorities during seismic events" },
+          { icon: "fa-route", title: "Evacuation Tools", desc: "Digital evacuation maps and real-time guidance for safe exits" },
+          { icon: "fa-clipboard-list", title: "Safety Protocols", desc: "Comprehensive earthquake preparedness procedures and checklists" },
+          { icon: "fa-map-marked-alt", title: "Interactive Maps", desc: "Google Maps integration for evacuation routes and safe zones" },
+          { icon: "fa-history", title: "Event History", desc: "Track and analyze past seismic events and response times" }
+        ],
+        technologies: ["Flutter", "Firebase", "Google Maps API", "Push Notifications", "Real-time Database"],
+        github: "#",
+        live: "#"
+      }
+    };
+
+    // Show project detail page
+    function showProject(projectId) {
+      const project = projectData[projectId];
+      if (!project) return;
+
+      // Set content
+      document.getElementById("projectTitle").textContent = project.title;
+      document.getElementById("projectDescription").textContent = project.description;
+
+      // Set video
+      const videoContainer = document.getElementById("projectVideo");
+      if (project.videoUrl && project.videoUrl !== "") {
+        videoContainer.innerHTML = `
+          <video controls class="w-full h-full">
+            <source src="${project.videoUrl}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        `;
+      } else {
+        videoContainer.innerHTML = `
+          <div class="flex items-center justify-center h-full text-gray-400">
+            <div class="text-center">
+              <i class="fas fa-video text-6xl mb-4"></i>
+              <p class="text-lg">Demo video coming soon</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Set technologies
+      const techHTML = project.technologies.map(tech => `
+        <span class="px-5 py-2.5 bg-black text-white dark:bg-white dark:text-black rounded-full text-sm font-semibold">
+          ${tech}
+        </span>
+      `).join('');
+      document.getElementById("projectTech").innerHTML = techHTML;
+
+      // Set features
+      const featuresHTML = project.features.map(feature => `
+        <div class="flex gap-4 p-5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 rounded-xl bg-black dark:bg-white flex items-center justify-center">
+              <i class="fas ${feature.icon} text-white dark:text-black text-lg"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-1">${feature.title}</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">${feature.desc}</p>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById("projectFeatures").innerHTML = featuresHTML;
+
+      // Set links
+      document.getElementById("projectGithub").href = project.github;
+      document.getElementById("projectLive").href = project.live;
+
+      // Switch pages
+      document.getElementById("mainPage").classList.remove("active");
+      document.getElementById("projectPage").classList.add("active");
+      window.scrollTo(0, 0);
+    }
+
+    // Go back to main page
+    function goBack() {
+      document.getElementById("projectPage").classList.remove("active");
+      document.getElementById("mainPage").classList.add("active");
+      window.scrollTo(0, 0);
+    }
   </script>
 </body>
 </html>
