@@ -69,6 +69,13 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .visitor-badge {
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
   </style>
 </head>
 
@@ -93,51 +100,52 @@
           </button>
         </div>
 
-        <!-- Header Section -->
-        <header class="mb-16">
-          <!-- ✅ Profile row -->
-          <div class="flex items-start gap-6">
-            <!-- ✅ CHANGE THIS PATH TO YOUR IMAGE IN FOLDER -->
-            <!-- Example: ./profile.jpg OR ./images/profile.png -->
-            <img
-            src="./image.jpg"
-            alt="Shahab Mustafa"
-            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover
-                   border-2 border-gray-300 dark:border-gray-700
-                   bg-gray-100 dark:bg-gray-950"
-          />        
+    <!-- Header Section -->
+<header class="mb-16">
+  <!-- Profile section - Column on mobile, Row on desktop -->
+  <div class="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
+    <!-- Profile Image -->
+    <img
+      src="./image.jpg"
+      alt="Shahab Mustafa"
+      class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover
+             border-2 border-gray-300 dark:border-gray-700
+             bg-gray-100 dark:bg-gray-950"
+    />        
 
-            <div class="flex-1">
-              <h1 class="text-4xl sm:text-4xl font-bold mb-2">Shahab Mustafa</h1>
-              <p class="text-xl text-gray-700 dark:text-gray-300 mb-1">Flutter Developer</p>
-              <p class="text-gray-600 dark:text-gray-400 mb-6">Peshawar, Pakistan</p>
+    <div class="flex-1">
+      <h1 class="text-4xl sm:text-4xl font-bold mb-2">Shahab Mustafa</h1>
+      <p class="text-xl text-gray-700 dark:text-gray-300 mb-1">Flutter Developer</p>
+      <p class="text-gray-600 dark:text-gray-400 mb-6">Peshawar, Pakistan</p>
 
-              <div class="flex gap-4 items-center flex-wrap">
-                <a href="./resume.pdf" download="Shahab_Mustafa_Resume.pdf"
-                   class="bg-black text-white dark:bg-white dark:text-black px-5 py-1.5 rounded-lg font-medium
-                          hover:opacity-90 transition flex items-center gap-2 cursor-pointer">
-                  <i class="far fa-file-alt"></i>
-                  Resume
-                </a>
+      <div class="flex gap-4 items-center flex-wrap justify-center md:justify-start">
+        <a href="./resume.pdf" download="Shahab_Mustafa_Resume.pdf"
+           class="bg-black text-white dark:bg-white dark:text-black px-5 py-1.5 rounded-lg font-medium
+                  hover:opacity-90 transition flex items-center gap-2 cursor-pointer">
+          <i class="far fa-file-alt"></i>
+          Resume
+        </a>
 
-                <a href="https://www.linkedin.com/in/shahab-mustafa-842688211/"
-                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                  <i class="fab fa-linkedin"></i>
-                </a>
+        <a href="https://www.linkedin.com/in/shahab-mustafa-842688211/"
+           class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+          <i class="fab fa-linkedin"></i>
+        </a>
 
-                <a href="https://github.com/Shahabmustafa"
-                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                  <i class="fab fa-github"></i>
-                </a>
+        <a href="https://github.com/Shahabmustafa"
+           class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+          <i class="fab fa-github"></i>
+        </a>
 
-                <a href="mailto:shahabmustafa57@gmail.com"
-                   class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
-                  <i class="far fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </header>
+        <a href="mailto:shahabmustafa57@gmail.com"
+           class="text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-gray-300 transition text-xl">
+          <i class="far fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
 
        <!-- Tech Stack Section -->
 <section class="mb-16">
@@ -294,6 +302,9 @@
         <!-- Footer -->
         <footer class="text-center text-gray-600 dark:text-gray-400 text-sm pt-8 border-t border-gray-200 dark:border-gray-800">
           <p>&copy; 2025 Shahab Mustafa</p>
+          <p class="mt-2">
+            <i class="fas fa-eye"></i> Total Visitors: <span id="visitorCount" class="font-semibold">...</span>
+          </p>
         </footer>
 
       </div>
@@ -517,6 +528,55 @@
       document.getElementById("mainPage").classList.add("active");
       window.scrollTo(0, 0);
     }
+    /* JavaScript - Counter Logic */
+async function initVisitorCounter() {
+  try {
+    const VISITOR_KEY = 'portfolio_total_visitors';
+    const SESSION_KEY = 'portfolio_session_' + Date.now();
+    
+    // Check if user already visited in this session
+    const hasVisited = sessionStorage.getItem(SESSION_KEY);
+    
+    if (!hasVisited) {
+      // Get current count
+      let currentCount = 0;
+      try {
+        const result = await window.storage.get(VISITOR_KEY, true);
+        if (result && result.value) {
+          currentCount = parseInt(result.value) || 0;
+        }
+      } catch (e) {
+        // Key doesn't exist yet, start from 0
+        currentCount = 0;
+      }
+      
+      // Increment count
+      const newCount = currentCount + 1;
+      await window.storage.set(VISITOR_KEY, newCount.toString(), true);
+      
+      // Mark this session as visited
+      sessionStorage.setItem(SESSION_KEY, 'true');
+      
+      // Update display
+      document.getElementById('visitorCount').textContent = newCount.toLocaleString();
+    } else {
+      // Just display the current count
+      try {
+        const result = await window.storage.get(VISITOR_KEY, true);
+        const count = result && result.value ? parseInt(result.value) : 0;
+        document.getElementById('visitorCount').textContent = count.toLocaleString();
+      } catch (e) {
+        document.getElementById('visitorCount').textContent = '0';
+      }
+    }
+  } catch (error) {
+    console.error('Visitor counter error:', error);
+    document.getElementById('visitorCount').textContent = '...';
+  }
+}
+
+// Initialize visitor counter on page load
+initVisitorCounter();
   </script>
 </body>
 </html>
