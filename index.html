@@ -215,16 +215,38 @@
         <!-- Recent Projects Section -->
         <section class="mb-16">
           <h2 class="text-xl font-semibold mb-8">Recent projects</h2>
-
+        
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 - SafiShoes -->
+            <!-- Project 1 - WFM91.7 -->
+            <div class="group cursor-pointer" onclick="showProject('wfm917')">
+              <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-purple-100 to-pink-200 dark:from-purple-900 dark:to-pink-900">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img src="./wfm917.png" alt="WFM91.7 Logo" class="h-20 object-contain">
+                </div>
+              </div>
+        
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold">WFM91.7 Radio App</h3>
+                <div class="flex gap-2">
+                  <a href="https://play.google.com/store/apps/details?id=com.fwm917.women_radio&hl=en" target="_blank" onclick="event.stopPropagation()" class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition">
+                    <i class="fab fa-google-play"></i>
+                  </a>
+                </div>
+              </div>
+        
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                A professional live streaming radio application for WFM91.7, Nigeria's prominent women's radio station. Developed collaboratively with Kashif, serving 18K+ Facebook followers and 500+ concurrent listeners with high-quality audio streaming and interactive features.
+              </p>
+            </div>
+        
+            <!-- Project 2 - SafiShoes -->
             <div class="group cursor-pointer" onclick="showProject('safishoes')">
               <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-amber-100 to-orange-200 dark:from-amber-900 dark:to-orange-900">
                 <div class="w-full h-full flex items-center justify-center">
                   <img src="./safi.png" alt="SafiShoes Logo" class="h-20 object-contain">
                 </div>
               </div>
-
+        
               <div class="flex items-center justify-between mb-2">
                 <h3 class="text-xl font-semibold">SafiShoes POS</h3>
                 <div class="flex gap-2">
@@ -236,20 +258,20 @@
                   </a>
                 </div>
               </div>
-
+        
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 A comprehensive shoe store POS system with multi-branch management, inventory tracking, and detailed reporting.
               </p>
             </div>
-
-            <!-- Project 2 - Muslim & Quran Pro -->
+        
+            <!-- Project 3 - Muslim & Quran Pro -->
             <div class="group cursor-pointer" onclick="showProject('islamicapp')">
               <div class="rounded-lg overflow-hidden mb-4 aspect-video relative border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-emerald-100 to-teal-200 dark:from-emerald-900 dark:to-teal-900">
                 <div class="w-full h-full flex items-center justify-center">
                   <img src="./islamic.png" alt="Muslim & Quran Pro Logo" class="h-20 object-contain">
                 </div>
               </div>
-
+        
               <div class="flex items-center justify-between mb-2">
                 <h3 class="text-xl font-semibold">Muslim & Quran Pro</h3>
                 <div class="flex gap-2">
@@ -261,7 +283,7 @@
                   </a>
                 </div>
               </div>
-
+        
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 A comprehensive Islamic mobile app with prayer times, Quran reading & audio, Qibla direction, and Hajj/Umrah guides.
               </p>
