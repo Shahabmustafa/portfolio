@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon.png">
 <link rel="shortcut icon" href="./favicon.ico">
+
 <!-- Text Favicon (SM) -->
 <link rel="icon" type="image/svg+xml"
   href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='62' font-size='46' text-anchor='middle' fill='%23fff' font-family='Arial'%3ESM%3C/text%3E%3C/svg%3E">
@@ -77,6 +78,8 @@
     50% { opacity: 0.8; }
   }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
 
 <body class="bg-white text-gray-900 dark:bg-black dark:text-white font-sans">
@@ -528,55 +531,57 @@
       document.getElementById("mainPage").classList.add("active");
       window.scrollTo(0, 0);
     }
-    /* JavaScript - Counter Logic */
+
+    // Firebase Visitor Counter
 async function initVisitorCounter() {
   try {
-    const VISITOR_KEY = 'portfolio_total_visitors';
-    const SESSION_KEY = 'portfolio_session_' + Date.now();
+    // ⬇️ YAHA APNA FIREBASE CONFIG PASTE KAREIN
+    const firebaseConfig = {
+  apiKey: "AIzaSyDy6ZY3qbDuUVMbQUowNYczDiviHYovj6o",
+  authDomain: "frinz-874ce.firebaseapp.com",
+  databaseURL: "https://frinz-874ce-default-rtdb.firebaseio.com",
+  projectId: "frinz-874ce",
+  storageBucket: "frinz-874ce.firebasestorage.app",
+  messagingSenderId: "29041074742",
+  appId: "1:29041074742:web:db42e129b6f8d20fe6ae97",
+  measurementId: "G-HVRCMLE3HG"
+};
     
-    // Check if user already visited in this session
-    const hasVisited = sessionStorage.getItem(SESSION_KEY);
-    
-    if (!hasVisited) {
-      // Get current count
-      let currentCount = 0;
-      try {
-        const result = await window.storage.get(VISITOR_KEY, true);
-        if (result && result.value) {
-          currentCount = parseInt(result.value) || 0;
-        }
-      } catch (e) {
-        // Key doesn't exist yet, start from 0
-        currentCount = 0;
-      }
-      
-      // Increment count
-      const newCount = currentCount + 1;
-      await window.storage.set(VISITOR_KEY, newCount.toString(), true);
-      
-      // Mark this session as visited
-      sessionStorage.setItem(SESSION_KEY, 'true');
-      
-      // Update display
-      document.getElementById('visitorCount').textContent = newCount.toLocaleString();
-    } else {
-      // Just display the current count
-      try {
-        const result = await window.storage.get(VISITOR_KEY, true);
-        const count = result && result.value ? parseInt(result.value) : 0;
-        document.getElementById('visitorCount').textContent = count.toLocaleString();
-      } catch (e) {
-        document.getElementById('visitorCount').textContent = '0';
-      }
+    // Initialize Firebase (agar pehle se initialized nahi hai)
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
     }
+    
+    const database = firebase.database();
+    const visitorRef = database.ref('visitors/count');
+    
+    // Check if user visited today
+    const lastVisitKey = 'portfolio_last_visit';
+    const lastVisit = localStorage.getItem(lastVisitKey);
+    const today = new Date().toDateString();
+    
+    if (lastVisit !== today) {
+      // New visit - increment count
+      visitorRef.transaction((currentCount) => {
+        return (currentCount || 0) + 1;
+      });
+      localStorage.setItem(lastVisitKey, today);
+    }
+    
+    // Display current count
+    visitorRef.on('value', (snapshot) => {
+      const count = snapshot.val() || 0;
+      document.getElementById('visitorCount').textContent = count.toLocaleString();
+    });
+    
   } catch (error) {
     console.error('Visitor counter error:', error);
-    document.getElementById('visitorCount').textContent = '...';
+    document.getElementById('visitorCount').textContent = '0';
   }
 }
 
-// Initialize visitor counter on page load
-initVisitorCounter();
+// Page load hone par counter initialize karein
+window.addEventListener('DOMContentLoaded', initVisitorCounter);
   </script>
 </body>
 </html>
