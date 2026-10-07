@@ -177,6 +177,27 @@
       transform-origin: 0 50%; transform: scaleX(0);
     }
 
+    /* Top bar: links centered at the top; after scrolling past the hero name,
+       the name + photo fade in on the left and the links glide to the right */
+    #topNav { border-color: transparent; transition: border-color 300ms ease; }
+    #topNav.scrolled { border-color: rgb(229 231 235 / .7); }
+    .dark #topNav.scrolled { border-color: rgb(31 41 55 / .7); }
+
+    .nav-brand {
+      opacity: 0; transform: translateY(10px); filter: blur(4px); pointer-events: none;
+      transition: opacity 400ms ease, transform 550ms cubic-bezier(.2,.8,.2,1), filter 400ms ease;
+    }
+    .nav-brand img { transform: scale(.5) rotate(-20deg); transition: transform 600ms cubic-bezier(.34,1.56,.64,1); }
+    #topNav.scrolled .nav-brand { opacity: 1; transform: none; filter: none; pointer-events: auto; }
+    #topNav.scrolled .nav-brand img { transform: none; }
+    #topNav.on-project .nav-brand { display: none; }
+
+    .nav-links {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      transition: left 650ms cubic-bezier(.2,.8,.2,1), transform 650ms cubic-bezier(.2,.8,.2,1);
+    }
+    #topNav.scrolled .nav-links { left: calc(100% - 3rem); transform: translate(-100%, -50%); }
+
     /* Theme toggle icon spin */
     #themeToggle.spin #themeIcon { animation: spin 500ms cubic-bezier(.2,.8,.2,1); }
 
@@ -200,19 +221,26 @@
   <div id="scrollProgress"></div>
 
   <!-- Sticky top bar -->
-  <nav class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-gray-200/70 dark:border-gray-800/70">
-    <div class="max-w-3xl mx-auto px-6 sm:px-12 lg:px-16 h-16 flex items-center justify-between">
+  <nav id="topNav" class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12 lg:px-16 h-16">
+     <div class="relative h-full flex items-center justify-between">
       <button onclick="goBack()" class="flex items-center gap-2 font-bold tracking-tight">
-        <span class="w-8 h-8 rounded-lg bg-black text-white dark:bg-white dark:text-black grid place-items-center text-xs">SM</span>
+        <span id="navBrand" class="nav-brand flex items-center gap-2.5">
+          <img src="./image.jpg" alt="" class="w-8 h-8 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-800">
+          <span>Shahab Mustafa</span>
+        </span>
         <span id="navBack" class="hidden items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">
           <i class="fas fa-arrow-left text-xs"></i> Back
         </span>
       </button>
 
-      <div class="flex items-center gap-1 sm:gap-2">
-        <a href="#stack" onclick="goBack()" class="hidden sm:inline-block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Stack</a>
-        <a href="#projects" onclick="goBack()" class="hidden sm:inline-block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Projects</a>
-        <a href="#contact" onclick="goBack()" class="hidden sm:inline-block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Contact</a>
+      <div class="nav-links hidden sm:flex items-center gap-1">
+        <a href="#stack" onclick="goBack()" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Stack</a>
+        <a href="#projects" onclick="goBack()" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Projects</a>
+        <a href="#contact" onclick="goBack()" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition">Contact</a>
+      </div>
+
+      <div class="flex items-center">
         <button
           id="themeToggle"
           class="w-10 h-10 grid place-items-center rounded-lg border border-gray-200 dark:border-gray-800
@@ -222,6 +250,7 @@
           <i id="themeIcon" class="fa-solid fa-moon"></i>
         </button>
       </div>
+     </div>
     </div>
   </nav>
 
@@ -730,7 +759,19 @@
       const back = document.getElementById("navBack");
       back.classList.toggle("hidden", id !== "projectPage");
       back.classList.toggle("flex", id === "projectPage");
+      updateNav();
     }
+
+    // Top bar state: "scrolled" once the hero name passes under the bar
+    function updateNav() {
+      const nav = document.getElementById("topNav");
+      const onProject = document.getElementById("projectPage").classList.contains("active");
+      const heroName = document.querySelector("#mainPage header h1");
+      const pastName = !onProject && heroName.getBoundingClientRect().bottom < nav.offsetHeight;
+      nav.classList.toggle("scrolled", onProject || pastName);
+      nav.classList.toggle("on-project", onProject);
+    }
+    window.addEventListener("scroll", updateNav, { passive: true });
 
     // Show project detail page
     function showProject(projectId) {
@@ -765,6 +806,7 @@
     }
     window.addEventListener("popstate", route);
     route();
+    updateNav();
 
     // Reveal sections on scroll
     const revealObserver = new IntersectionObserver(entries => {
