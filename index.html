@@ -281,16 +281,15 @@
 
             <div class="flex-1">
               <h1 style="--d:200ms" class="enter text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">Shahab Mustafa</h1>
-              <p style="--d:280ms" class="enter text-lg text-gray-700 dark:text-gray-300 mb-1 font-medium">Flutter Developer</p>
+              <p style="--d:280ms" class="enter text-lg text-gray-700 dark:text-gray-300 mb-1 font-medium">Software Engineer</p>
               <p style="--d:340ms" class="enter text-gray-500 dark:text-gray-400 mb-5 flex items-center gap-2 justify-center md:justify-start">
                 <i class="fas fa-location-dot text-sm"></i> Peshawar, Pakistan
               </p>
 
               <p style="--d:420ms" class="enter text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-7 mx-auto md:mx-0">
-                I turn ideas into fast, polished apps for Android and iOS. With 2+ years of Flutter
-                experience, I've shipped everything from multi-branch POS systems and live radio streaming
-                to real-time marketplaces — built on clean architecture, smooth UI, and Firebase or Supabase
-                behind the scenes.
+                Software engineer and founder. I build and ship production apps — founder of PAO (live on
+                Google Play), co-founder of Qistly, and builder of Jan Ghani POS ($150K+ in
+                sales).
               </p>
 
               <div style="--d:500ms" class="enter flex gap-3 items-center flex-wrap justify-center md:justify-start">
@@ -385,16 +384,88 @@
         <section id="projects" class="mb-20 scroll-mt-24 reveal">
           <div class="flex items-baseline justify-between mb-6">
             <h2 class="text-2xl font-bold tracking-tight">Recent projects</h2>
-            <span class="text-sm text-gray-500">4 projects</span>
+            <span class="text-sm text-gray-500">5 projects</span>
           </div>
 
-          <div class="stagger grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="stagger grid grid-cols-1 gap-5">
+            <div class="project-card group flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
+              <div class="flex flex-col flex-1 p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="text-lg font-semibold">PAO</h3>
+                  <a href="https://play.google.com/store/apps/details?id=com.pao.pao" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="PAO on Google Play" class="text-gray-400 hover:text-black dark:hover:text-white transition"><i class="fab fa-google-play"></i></a>
+                </div>
+                <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-2 flex items-center gap-1.5"><i class="fas fa-circle text-[6px]"></i>Founder · Sep 2026 – Present</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  PAO started from something I saw myself. One day I threw away things that were still in good condition, and I realized someone else could have used them. So I built PAO, a free app where anyone can list items they don't need and give them to people who do. It reduces waste and helps people get useful things at no cost. The app is live on Google Play, and 50+ people already use it. I built and published it myself.
+                </p>
+                <div class="mt-auto flex items-center justify-between">
+                  <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Supabase</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Realtime</span></div>
+                  <a href="https://play.google.com/store/apps/details?id=com.pao.pao" target="_blank" rel="noopener noreferrer" class="text-sm font-medium flex items-center gap-1.5 shrink-0">Play Store <i class="arrow fas fa-arrow-up-right-from-square text-xs"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card group flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
+              <div class="flex flex-col flex-1 p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="text-lg font-semibold">Qistly</h3>
+                  <a href="https://qistly.pk" target="_blank" rel="noopener noreferrer" aria-label="Visit qistly.pk" class="text-gray-400 hover:text-black dark:hover:text-white transition"><i class="fas fa-globe"></i></a>
+                  
+                </div>
+                <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-2 flex items-center gap-1.5"><i class="fas fa-circle text-[6px]"></i>Co-founder · Jun 2026 – Present</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  Qistly is an installment-financing platform for Pakistan. Most people here can't pay the full price of a phone, appliance, or other big purchase upfront, so they buy from corner stores on installments. Corner stores already sell this way, but they track it in notebooks, chase payments by hand, and often lose money to missed or forgotten payments. We're building Qistly as its own app so that any corner store can offer installments and collect payments without any setup or special hardware. The store lists what it sells, sets the installment plan, and tracks who has paid and who hasn't. Customers can buy what they need and pay over time. We built the website, and our first partner store joins in about two months, when we'll start testing with real customers and real payments.
+                </p>
+                <div class="mt-auto flex items-center justify-between">
+                  <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Fintech</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Installments</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Web</span></div>
+                  <a href="https://qistly.pk" target="_blank" rel="noopener noreferrer" class="text-sm font-medium flex items-center gap-1.5 shrink-0">Visit site <i class="arrow fas fa-arrow-up-right-from-square text-xs"></i></a>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card group flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
+              <div class="flex flex-col flex-1 p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <h3 class="text-lg font-semibold">Jan Ghani Mart</h3>
+                  <a href="https://janghani.store" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Visit janghani.store" class="text-gray-400 hover:text-black dark:hover:text-white transition"><i class="fas fa-globe"></i></a>
+                </div>
+                <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-2 flex items-center gap-1.5"><i class="fas fa-circle text-[6px]"></i>Software Engineer · Mar 2026 – Present</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  Jan Ghani is a point-of-sale and retail management system I built for businesses with multiple branches. It's live in two branches and has handled over $150K in sales in the last 6 months. In Pakistan, most retail runs on credit: our stores sell on credit to 500+ customers, and tracking who owes what usually lives in paper notebooks. Jan Ghani replaces that with a digital customer ledger, thermal-printed receipts, barcode scanning, stock transfers between branches, sales returns, and per-branch profit and loss reports. It works offline-first with background sync, so a branch keeps selling when the internet drops. Our own stores are the first customers and the testing ground, and the next step is to offer the product to other multi-branch shops.
+                </p>
+                <div class="mt-auto flex items-center justify-between">
+                  <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">PostgreSQL</span><span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Supabase</span></div>
+                  <a href="https://janghani.store" target="_blank" rel="noopener noreferrer" class="text-sm font-medium flex items-center gap-1.5 shrink-0">Visit site <i class="arrow fas fa-arrow-up-right-from-square text-xs"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 - SafiShoes -->
+            <div
+                 class="project-card group flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
+              <div class="flex flex-col flex-1 p-5">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-semibold">SafiShoes POS</h3>
+                  <span class="text-xs px-2 py-0.5 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500"><i class="fas fa-play text-[9px] mr-1"></i>Demo</span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  A point-of-sale system built for SafiShoes, a Pakistani shoe brand, and used across 10 branches. It handles multi-branch management, warehouse and branch stock, sales and purchase invoices, customer and company ledgers, and detailed reporting.
+                </p>
+                <div class="mt-auto flex items-center justify-between">
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter</span>
+                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Firebase</span>
+                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">SQLite</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
             <!-- Project 1 - WFM91.7 (opens Play Store) -->
             <a href="https://play.google.com/store/apps/details?id=com.fwm917.women_radio&hl=en" target="_blank" rel="noopener noreferrer"
                class="project-card group flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
-              <div class="project-thumb aspect-video overflow-hidden flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-200 dark:from-purple-900/70 dark:to-pink-900/70">
-                <img src="./wfm917.png" alt="WFM91.7 Logo" class="h-20 object-contain">
-              </div>
               <div class="flex flex-col flex-1 p-5">
                 <div class="flex items-center justify-between mb-2">
                   <h3 class="text-lg font-semibold">WFM91.7 Radio App</h3>
@@ -413,86 +484,6 @@
               </div>
             </a>
 
-            <!-- Project 2 - SafiShoes -->
-            <div role="button" tabindex="0" onclick="showProject('safishoes')" onkeydown="if(event.key==='Enter')showProject('safishoes')"
-                 class="project-card group cursor-pointer flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
-              <div class="project-thumb aspect-video overflow-hidden flex items-center justify-center bg-gradient-to-br from-amber-100 to-orange-200 dark:from-amber-900/70 dark:to-orange-900/70">
-                <img src="./safi.png" alt="SafiShoes Logo" class="h-20 object-contain">
-              </div>
-              <div class="flex flex-col flex-1 p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-lg font-semibold">SafiShoes POS</h3>
-                  <span class="text-xs px-2 py-0.5 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500"><i class="fas fa-play text-[9px] mr-1"></i>Demo</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                  A comprehensive shoe store POS system with multi-branch management, inventory tracking, and detailed reporting.
-                </p>
-                <div class="mt-auto flex items-center justify-between">
-                  <div class="flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Firebase</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">SQLite</span>
-                  </div>
-                  <span class="text-sm font-medium flex items-center gap-1.5 shrink-0">Details <i class="arrow fas fa-arrow-right text-xs"></i></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3 - Jan Ghani Mart -->
-            <div role="button" tabindex="0" onclick="showProject('janghani')" onkeydown="if(event.key==='Enter')showProject('janghani')"
-                 class="project-card group cursor-pointer flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
-              <div class="project-thumb aspect-video overflow-hidden flex items-center justify-center bg-gradient-to-br from-violet-100 to-indigo-200 dark:from-violet-900/70 dark:to-indigo-900/70">
-                <img src="./janghani.png" alt="Jan Ghani Mart Logo" class="h-20 object-contain rounded-2xl shadow-lg">
-              </div>
-              <div class="flex flex-col flex-1 p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-lg font-semibold">Jan Ghani Mart</h3>
-                  <a href="https://janghani.store" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Visit janghani.store"
-                     class="text-gray-400 hover:text-black dark:hover:text-white transition">
-                    <i class="fas fa-globe"></i>
-                  </a>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                  A retail store app with online shopping on easy installments, plus multi-branch POS, inventory, purchasing, staff and reporting — with an AI business assistant. Live at janghani.store.
-                </p>
-                <div class="mt-auto flex items-center justify-between">
-                  <div class="flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter Web</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Supabase</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">AI</span>
-                  </div>
-                  <span class="text-sm font-medium flex items-center gap-1.5 shrink-0">Details <i class="arrow fas fa-arrow-right text-xs"></i></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 4 - PAO -->
-            <div role="button" tabindex="0" onclick="showProject('pao')" onkeydown="if(event.key==='Enter')showProject('pao')"
-                 class="project-card group cursor-pointer flex flex-col rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 hover:border-gray-300 dark:hover:border-gray-700 transition duration-300">
-              <div class="project-thumb aspect-video overflow-hidden flex items-center justify-center bg-gradient-to-br from-sky-100 to-indigo-200 dark:from-sky-900/70 dark:to-indigo-900/70">
-                <img src="./pao.png" alt="PAO Logo" class="h-20 object-contain rounded-2xl shadow-lg">
-              </div>
-              <div class="flex flex-col flex-1 p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-lg font-semibold">PAO</h3>
-                  <a href="https://play.google.com/store/apps/details?id=com.pao.pao" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="PAO on Google Play"
-                     class="text-gray-400 hover:text-black dark:hover:text-white transition">
-                    <i class="fab fa-google-play"></i>
-                  </a>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                  A give-away marketplace app — post items you no longer need for free, browse what others are giving away, and arrange the handoff through in-app chat.
-                </p>
-                <div class="mt-auto flex items-center justify-between">
-                  <div class="flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Flutter</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Supabase</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-900 text-xs font-medium text-gray-700 dark:text-gray-300">Realtime</span>
-                  </div>
-                  <span class="text-sm font-medium flex items-center gap-1.5 shrink-0">Details <i class="arrow fas fa-arrow-right text-xs"></i></span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -614,7 +605,7 @@
         title: "SafiShoes POS System",
         logo: "./safi.png",
         tint: "from-amber-100 to-orange-200 dark:from-amber-900/70 dark:to-orange-900/70",
-        description: "A comprehensive Point of Sale system designed specifically for shoe retail businesses. This enterprise-level application manages multiple branches, warehouses, and provides detailed inventory tracking with real-time reporting capabilities. Built with Flutter for cross-platform compatibility and seamless performance.",
+        description: "SafiShoes POS is a Point of Sale system built for SafiShoes, a Pakistani shoe brand, and it is used across 10 branches. It manages multiple branches and warehouses with detailed inventory tracking and real-time reporting, and is built with Flutter for cross-platform compatibility and seamless performance.",
         videoUrl: "./safishoes-demo.mp4",
         features: [
           { icon: "fa-users-cog", title: "Multi-User Management", desc: "Admin, Branch Manager, Warehouse Manager roles with complete permission control" },
@@ -638,11 +629,27 @@
         github: "#",
         live: "#"
       },
+      qistly: {
+        title: "Qistly — Co-founder",
+        logo: "./qistly.svg",
+        tint: "from-emerald-100 to-teal-200 dark:from-emerald-900/70 dark:to-teal-900/70",
+        description: "Qistly is an installment-financing platform for Pakistan. Most people here can't pay the full price of a phone, appliance, or other big purchase upfront, so they buy from corner stores on installments. Corner stores already sell this way, but they track it in notebooks, chase payments by hand, and often lose money to missed or forgotten payments. We're building Qistly as its own app so that any corner store can offer installments and collect payments without any setup or special hardware. The store lists what it sells, sets the installment plan, and tracks who has paid and who hasn't. Customers can buy what they need and pay over time. We built the website, and our first partner store joins in about two months, when we'll start testing with real customers and real payments.",
+        videoUrl: "",
+        features: [
+          { icon: "fa-store", title: "Built for Corner Stores", desc: "Any store can offer installments without special setup or hardware" },
+          { icon: "fa-list", title: "Product Listings", desc: "Stores list what they sell and set the installment plan" },
+          { icon: "fa-user-check", title: "Payment Tracking", desc: "See who has paid and who hasn't, instead of notebooks and manual chasing" },
+          { icon: "fa-hand-holding-dollar", title: "Pay Over Time", desc: "Customers buy phones, appliances and more without paying the full price upfront" }
+        ],
+        technologies: ["Web", "Installments", "Fintech"],
+        github: "#",
+        live: "https://qistly.pk"
+      },
       janghani: {
         title: "Jan Ghani Mart",
         logo: "./janghani.png",
         tint: "from-violet-100 to-indigo-200 dark:from-violet-900/70 dark:to-indigo-900/70",
-        description: "Jan Ghani Mart is a retail store platform built with Flutter Web and Supabase. Customers can browse products by category and buy on easy installment plans, while the business runs its branches, warehouses, purchasing, staff and finances from role-based dashboards — with detailed reports, PDF/Excel export, and an AI business assistant that answers questions about sales and stock.",
+        description: "Jan Ghani is a point-of-sale and retail management system I built for businesses with multiple branches. It's live in two branches and has handled over $150K in sales in the last 6 months. In Pakistan, most retail runs on credit: our stores sell on credit to 500+ customers, and tracking who owes what usually lives in paper notebooks. Jan Ghani replaces that with a digital customer ledger, thermal-printed receipts, barcode scanning, stock transfers between branches, sales returns, and per-branch profit and loss reports. It works offline-first with background sync, so a branch keeps selling when the internet drops. Our own stores are the first customers and the testing ground, and the next step is to offer the product to other multi-branch shops.",
         videoUrl: "",
         features: [
           { icon: "fa-store", title: "Online Storefront", desc: "Browse products by category with doorstep delivery and WhatsApp contact" },
@@ -658,15 +665,15 @@
           { icon: "fa-robot", title: "AI Business Assistant", desc: "Ask for today's sales, low stock or damage reports in plain language" },
           { icon: "fa-user-shield", title: "Role-Based Access", desc: "Separate screens for admin, branch manager, accountant and cashier" }
         ],
-        technologies: ["Flutter", "Flutter Web", "Dart", "Supabase", "Riverpod", "PDF", "Excel", "Barcode", "AI Assistant"],
+        technologies: ["Flutter", "Flutter Web", "Dart", "PostgreSQL", "Supabase", "Riverpod", "Offline-first Sync", "Thermal Printing", "Barcode"],
         github: "#",
         live: "https://janghani.store"
       },
       pao: {
-        title: "PAO — Give-Away Marketplace",
+        title: "PAO — Founder",
         logo: "./pao.png",
         tint: "from-sky-100 to-indigo-200 dark:from-sky-900/70 dark:to-indigo-900/70",
-        description: "PAO (پاؤ) is a give-away marketplace app where people post items they no longer need for free, browse what others are giving away, and arrange the handoff through in-app chat. Built with Flutter and Supabase, with real-time listings, voice and media messages, push notifications, ratings and reviews, and province-based location filtering.",
+        description: "PAO started from something I saw myself. One day I threw away things that were still in good condition, and I realized someone else could have used them. So I built PAO, a free app where anyone can list items they don't need and give them to people who do. It reduces waste and helps people get useful things at no cost. The app is live on Google Play, and 50+ people already use it. I built and published it myself.",
         videoUrl: "",
         features: [
           { icon: "fa-gift", title: "Give & Get", desc: "Post items with photos, category and condition, and browse items others are giving away" },
